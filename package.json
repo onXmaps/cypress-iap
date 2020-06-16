@@ -1,0 +1,25 @@
+{
+  "name": "cypress-libraries",
+  "version": "1.0.0",
+  "description": "Library for onX Cypress implementations",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onXmaps/cypress-libraries.git"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Colt Dorsey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onXmaps/cypress-libraries/issues"
+  },
+  "homepage": "https://github.com/onXmaps/cypress-libraries#readme",
+  "peerDependencies": {
+    "cypress": "^4.7.0"
+  }
+}
