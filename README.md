@@ -1,2 +1,2 @@
 # cypress-libraries
-Custom cypress libraries for various teams to consume
+Library for onX cypress implementations
