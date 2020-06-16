@@ -1,8 +1,9 @@
 {
-  "name": "cypress-libraries",
+  "name": "cy-onx",
   "version": "1.0.0",
   "description": "Library for onX Cypress implementations",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "test"
   },
