@@ -2,10 +2,11 @@
   "name": "cypress-libraries",
   "version": "1.0.0",
   "description": "Library for onX Cypress implementations",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
-    "lib"
+    "support.js",
+    "index.d.ts"
   ],
   "scripts": {
     "build": "babel src --out-dir lib",
