@@ -10,7 +10,7 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
         }).then(client_id => {
             const auth = new GoogleAuth();
             auth.getIdTokenClient(client_id).then((client) => {
-                client.request({ url }).then((res) => {
+                client.request(Cypress.config().baseUrl).then((res) => {
                     res.config.headers.Authorization.split(" ")[1].then((token) => {
                         console.log(token)
                         cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
