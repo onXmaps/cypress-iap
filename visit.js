@@ -5,10 +5,11 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
     if (Cypress.config().baseUrl.indexOf('localhost') != -1) {
         return originalFn(subject, ...args);
     } else {
-        debugger
         cy.exec('curl -I ' + Cypress.config().baseUrl + " | awk '/^location/ {split($NF, a, /[=&]/); print a[2]}'").then((client_id) => {
+            debugger
             return client_id.stdout
         }).then((client_id) => {
+            debugger
             const auth = new GoogleAuth();
             auth.getIdTokenClient(client_id.stdout).then((client) => {
                 const url = Cypress.config().baseUrl
