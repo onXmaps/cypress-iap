@@ -2,10 +2,10 @@
   "name": "cypress-iap",
   "version": "1.0.0",
   "description": "Cypress command to authenticate with IAP",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
-    "dist",
+    "utils.js",
     "index.d.ts"
   ],
   "scripts": {
@@ -28,11 +28,7 @@
   },
   "homepage": "https://github.com/onXmaps/cypress-libraries#readme",
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2"
-  },
-  "dependencies": {
     "cypress": "^5.2.0"
-  }
+  },
+  "dependencies": {}
 }
