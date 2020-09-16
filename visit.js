@@ -10,7 +10,7 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
             cy.task('getIAPToken', { url: Cypress.config().baseUrl, cid: client_id }).then((token) => {
                 console.log(token)
                 cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
-                    .then( () => {
+                    .then(() => {
                         return originalFn(subject, ...args)
                     })
             })
@@ -18,10 +18,12 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
     }
 })
 
-async function getIAPToken({url, cid}) {
-    const {GoogleAuth} = require('google-auth-library');
-    const auth = new GoogleAuth();
-    const client = await auth.getIdTokenClient(cid);
-    const res = await client.request({url});
-    return res.config.headers.Authorization.split(" ")[1]
-}
+on('task', {
+    async getIAPToken({ url, cid }) {
+        const { GoogleAuth } = require('google-auth-library');
+        const auth = new GoogleAuth();
+        const client = await auth.getIdTokenClient(cid);
+        const res = await client.request({ url });
+        return res.config.headers.Authorization.split(" ")[1]
+    }
+})
