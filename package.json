@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
-    "utils.js",
+    "visit.js",
     "index.d.ts"
   ],
   "scripts": {

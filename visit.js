@@ -1,5 +1,6 @@
-import { getIAPToken } from "./utils";
+/// <reference types="cypress">
 Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
+
     if (Cypress.config().baseUrl.indexOf('localhost') != -1) {
         return originalFn(subject, ...args);
     } else {
@@ -14,6 +15,13 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
                     })
             })
         })
-        
     }
 })
+
+async function getIAPToken({url, cid}) {
+    const {GoogleAuth} = require('google-auth-library');
+    const auth = new GoogleAuth();
+    const client = await auth.getIdTokenClient(cid);
+    const res = await client.request({url});
+    return res.config.headers.Authorization.split(" ")[1]
+}
