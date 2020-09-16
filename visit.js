@@ -6,10 +6,8 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
         return originalFn(subject, ...args);
     } else {
         cy.exec('curl -I ' + Cypress.config().baseUrl + " | awk '/^location/ {split($NF, a, /[=&]/); print a[2]}'").then((client_id) => {
-            return client_id.stdout
-        }).then(client_id => {
             const auth = new GoogleAuth();
-            auth.getIdTokenClient(client_id).then((client) => {
+            auth.getIdTokenClient(client_id.stdout).then((client) => {
                 const url = Cypress.config().baseUrl
                 client.request({ url }).then((res) => {
                     res.config.headers.Authorization.split(" ")[1].then((token) => {
@@ -21,6 +19,7 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
                     })
                 })
             })
+        }).then(client_id => {
 
             // getIAPToken({ url: Cypress.config().baseUrl, cid: client_id }).then((token) => {
             //     console.log(token)
