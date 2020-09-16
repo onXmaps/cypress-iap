@@ -1,3 +1,4 @@
+const {GoogleAuth} = require('google-auth-library');
 /// <reference types="cypress">
 Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
 
@@ -7,7 +8,6 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
         cy.exec('curl -I ' + Cypress.config().baseUrl + " | awk '/^location/ {split($NF, a, /[=&]/); print a[2]}'").then((client_id) => {
             return client_id.stdout
         }).then(client_id => {
-            const {GoogleAuth} = require('google-auth-library');
             const auth = new GoogleAuth();
             const client = await auth.getIdTokenClient(client_id);
             const res = await client.request({url});
