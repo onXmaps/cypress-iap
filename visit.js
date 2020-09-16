@@ -11,7 +11,7 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
         }).then((client_id) => {
             debugger
             const auth = new GoogleAuth();
-            auth.getIdTokenClient(client_id.stdout).then((client) => {
+            auth.getIdTokenClient(client_id).then((client) => {
                 const url = Cypress.config().baseUrl
                 client.request({ url }).then((res) => {
                     res.config.headers.Authorization.split(" ")[1].then((token) => {
