@@ -1,4 +1,4 @@
-const {GoogleAuth} = require('google-auth-library');
+const { GoogleAuth } = require('google-auth-library');
 /// <reference types="cypress">
 Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
 
@@ -9,15 +9,18 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
             return client_id.stdout
         }).then(client_id => {
             const auth = new GoogleAuth();
-            const client = await auth.getIdTokenClient(client_id);
-            const res = await client.request({url});
-            res.config.headers.Authorization.split(" ")[1].then((token) => {
-                console.log(token)
-                cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
-                    .then( () => {
-                        return originalFn(subject, ...args)
+            auth.getIdTokenClient(client_id).then((client) => {
+                client.request({ url }).then((res) => {
+                    res.config.headers.Authorization.split(" ")[1].then((token) => {
+                        console.log(token)
+                        cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
+                            .then(() => {
+                                return originalFn(subject, ...args)
+                            })
                     })
+                })
             })
+
             // getIAPToken({ url: Cypress.config().baseUrl, cid: client_id }).then((token) => {
             //     console.log(token)
             //     cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
