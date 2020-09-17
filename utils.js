@@ -7,4 +7,4 @@ async function getIAPToken({ url: any, cid: any }) {
     return res.config.headers.Authorization.split(" ")[1]
 }
 
-module.export.getIAPToken = getIAPToken;
+module.exports.getIAPToken = getIAPToken;
