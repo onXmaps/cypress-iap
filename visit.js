@@ -1,4 +1,3 @@
-const { GoogleAuth } = require('google-auth-library');
 /// <reference types="cypress">
 Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
 
@@ -7,38 +6,28 @@ Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
     } else {
         cy.exec('curl -I ' + Cypress.config().baseUrl + " | awk '/^location/ {split($NF, a, /[=&]/); print a[2]}'").then((client_id) => {
             return client_id.stdout
-        }).then((client_id) => {
+        }).then(client_id => {
+            const { GoogleAuth } = require('google-auth-library');
             const auth = new GoogleAuth();
-            auth.getIdTokenClient(client_id).then((client) => {
-                debugger
-                const url = Cypress.config().baseUrl
-                client.request({ url }).then((res) => {
-                    res.config.headers.Authorization.split(" ")[1].then((token) => {
-                        console.log(token)
-                        cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
-                            .then(() => {
-                                return originalFn(subject, ...args)
-                            })
-                    })
+            return new Promise((resolve, reject) => {
+                getIAPToken(({ url, cid }) => {
+                    resolve(({ url, cid }))
                 })
+            }).then((token) => {
+                console.log(token)
+                cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
+                    .then(() => {
+                        return originalFn(subject, ...args)
+                    })
             })
-        })//.then(client_id => {
-
-        //     // getIAPToken({ url: Cypress.config().baseUrl, cid: client_id }).then((token) => {
-        //     //     console.log(token)
-        //     //     cy.setCookie('GCP_IAAP_AUTH_TOKEN', token)
-        //     //         .then( () => {
-        //     //             return originalFn(subject, ...args)
-        //     //         })
-        //     // })
-        // })
+        })
     }
 })
 
-// async function getIAPToken({url, cid}) {
-//     const {GoogleAuth} = require('google-auth-library');
-//     const auth = new GoogleAuth();
-//     const client = await auth.getIdTokenClient(cid);
-//     const res = await client.request({url});
-//     return res.config.headers.Authorization.split(" ")[1]
-// }
+async function getIAPToken({ url, cid }) {
+    const { GoogleAuth } = require('google-auth-library');
+    const auth = new GoogleAuth();
+    const client = await auth.getIdTokenClient(cid);
+    const res = await client.request({ url });
+    return res.config.headers.Authorization.split(" ")[1]
+}
