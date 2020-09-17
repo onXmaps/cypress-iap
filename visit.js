@@ -1,4 +1,3 @@
-const getIAPToken = require('./utils')
 /// <reference types="cypress">
 Cypress.Commands.overwrite('visit', (originalFn, subject, ...args) => {
     if (Cypress.config().baseUrl.indexOf('localhost') != -1) {
