@@ -1,4 +1,4 @@
-# coltdorsey/cypress-iap [![npm version](https://badge.fury.io/js/cypress-iap.svg)](https://badge.fury.io/js/cypress-iap)
+# coltdorsey/cypress-iap [![npm version](https://badge.fury.io/js/cypress-iap.svg)](https://badge.fury.io/js/cypress-iap) ![cypress-iap status](https://github.com/coltdorsey/cypress-iap/workflows/ci/badge.svg?branch=master)
 # Cypress Identity Aware Proxy(IAP)
 
 This Cypress plugin overwrites the `cy.visit` command and builds authentication capability [google-auth-library](https://github.com/googleapis/google-auth-library-nodejs) to access applications behind [Identity Aware Proxy(IAP)](https://cloud.google.com/iap/). If the the cypress baseUrl is localhost, the original `cy.visit` function is returned.
