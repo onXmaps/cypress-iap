@@ -7,7 +7,7 @@
   "masterIssue": true,
   "schedule": ["before 2am"],
   "updateNotScheduled": false,
-  "timezone": "America/New_York",
+  "timezone": "America/Chicago",
   "packageRules": [
     {
       "packagePatterns": ["*"],
