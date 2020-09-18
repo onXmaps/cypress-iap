@@ -6,7 +6,7 @@ This Cypress plugin overwrites the `cy.visit` command and builds authentication 
 Install the package using npm:
 
 ```
-npm install git+https://github.com/onXmaps/cypress-libraries.git
+npm i -D cypress-iap
 ```
 
 And add the following at the beginning of your setup file at `cypress/support/index.js`:
