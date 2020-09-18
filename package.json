@@ -4,6 +4,8 @@
   "description": "Cypress command to authenticate with IAP",
   "main": "index.js",
   "types": "index.d.ts",
+  "author": "Colt Dorsey <coltdorsey@gmail.com>",
+  "license": "MIT",
   "files": [
     "visit.js",
     "utils.js",
@@ -15,10 +17,12 @@
     "url": "git+https://github.com/coltdorsey/cypress-iap.git"
   },
   "keywords": [
-    "cypress"
+    "cypress",
+    "identity aware proxy",
+    "iap",
+    "google iap",
+    "authorization"
   ],
-  "author": "Colt Dorsey",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/coltdorsey/cypress-iap/issues"
   },
