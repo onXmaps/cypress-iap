@@ -23,8 +23,8 @@
     "cypress",
     "identity aware proxy",
     "iap",
-    "google iap",
-    "authorization"
+    "iap-verification",
+    "google-authentication"
   ],
   "bugs": {
     "url": "https://github.com/coltdorsey/cypress-iap/issues"
