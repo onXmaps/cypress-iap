@@ -1,6 +1,6 @@
 {
   "name": "cypress-iap",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Cypress command to authenticate with IAP",
   "main": "index.js",
   "types": "index.d.ts",
@@ -11,10 +11,12 @@
     "utils.js",
     "index.d.ts"
   ],
-  "scripts": {},
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coltdorsey/cypress-iap.git"
+    "url": "https://github.com/coltdorsey/cypress-iap.git"
   },
   "keywords": [
     "cypress",
@@ -28,14 +30,27 @@
   },
   "homepage": "https://github.com/coltdorsey/cypress-iap#readme",
   "devDependencies": {
-    "@semantic-release/npm": "^7.0.6"
+    "@semantic-release/npm": "^7.0.6",
+    "semantic-release-cli": "^5.4.0",
+    "semantic-release": "^17.1.2"
   },
   "dependencies": {},
   "release": {
-    "branches": [
-      "master",
-      "next"
-    ]
+    "analyzeCommits": {
+      "branches": [
+        "master",
+        "next"
+      ],
+      "releaseRules": [
+        {
+          "type": "docs",
+          "scope": "readme",
+          "release": "patch"
+        }
+      ]
+    }
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
