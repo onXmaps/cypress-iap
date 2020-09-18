@@ -28,8 +28,10 @@ module.exports = (on, config) => {
 ```
 
 ## Google Service Account
-A google service account should be created within your google cloud project. Upon creation, store the keyfile that is auto generated. 
+A google service account should be created within your google cloud project. Upon creation, store the keyfile that is auto generated.
+
 [Create a google service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys)
+
 Do `NOT` check this file in to your remote repository. Store it outside of your project or .gitignore / .dockerignore your keyfile.
 
 ### Example google cloud service account

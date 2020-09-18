@@ -36,5 +36,6 @@
       "master",
       "next"
     ]
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
