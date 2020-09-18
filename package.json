@@ -24,7 +24,11 @@
   },
   "homepage": "https://github.com/coltdorsey/cypress-iap#readme",
   "devDependencies": {
+    "@semantic-release/npm": "^7.0.6",
     "cypress": "^5.2.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "release": {
+    "branches": ["master", "next"]
+  }
 }
