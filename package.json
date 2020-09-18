@@ -12,7 +12,8 @@
     "index.d.ts"
   ],
   "scripts": {
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "format": "prettier -write '*.js'"
   },
   "repository": {
     "type": "git",
@@ -31,11 +32,25 @@
   "homepage": "https://github.com/coltdorsey/cypress-iap#readme",
   "devDependencies": {
     "@semantic-release/npm": "^7.0.6",
-    "semantic-release-cli": "^5.4.0",
-    "semantic-release": "^17.1.2"
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "semantic-release": "^17.1.2",
+    "semantic-release-cli": "^5.4.0"
   },
   "dependencies": {
     "underscore.string": ">=3.3.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "release": {
     "analyzeCommits": {

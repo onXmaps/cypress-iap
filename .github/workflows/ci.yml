@@ -1,0 +1,26 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v1
+
+      - name: NPM install
+        uses: bahmutov/npm-install@v1
+
+      - name: Format 🧪
+        run: npm run format
+
+      - name: Semantic Release 🚀
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        with:
+            branch: master
+            extra_plugins: |
+                @semantic-release/git
+                @semantic-release/changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
