@@ -34,7 +34,9 @@
     "semantic-release-cli": "^5.4.0",
     "semantic-release": "^17.1.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "underscore.string": ">=3.3.5"
+  },
   "release": {
     "analyzeCommits": {
       "branches": [
