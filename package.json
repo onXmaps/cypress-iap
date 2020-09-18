@@ -9,15 +9,10 @@
     "utils.js",
     "index.d.ts"
   ],
-  "scripts": {
-    "build": "babel src --out-dir dist",
-    "copy:types": "babel types --out-dir dist --copy-files",
-    "build:all": "npm run build && npm run copy:types",
-    "test": "echo 'done'"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onXmaps/cypress-libraries.git"
+    "url": "git+https://github.com/coltdorsey/cypress-iap.git"
   },
   "keywords": [
     "cypress"
@@ -25,9 +20,9 @@
   "author": "Colt Dorsey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/onXmaps/cypress-libraries/issues"
+    "url": "https://github.com/coltdorsey/cypress-iap/issues"
   },
-  "homepage": "https://github.com/onXmaps/cypress-libraries#readme",
+  "homepage": "https://github.com/coltdorsey/cypress-iap#readme",
   "devDependencies": {
     "cypress": "^5.2.0"
   },
