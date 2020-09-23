@@ -39,6 +39,7 @@
     "semantic-release-cli": "^5.4.0"
   },
   "dependencies": {
+    "google-auth-library": "^6.1.0",
     "underscore.string": ">=3.3.5"
   },
   "husky": {
