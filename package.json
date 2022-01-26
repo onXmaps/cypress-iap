@@ -1,6 +1,6 @@
 {
   "name": "cypress-iap",
-  "version": "0.0.0-development",
+  "version": "2.0.0",
   "description": "Cypress command to authenticate with IAP",
   "main": "index.js",
   "types": "index.d.ts",
