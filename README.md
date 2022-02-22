@@ -1,9 +1,11 @@
-# coltdorsey/cypress-iap [![npm version](https://badge.fury.io/js/cypress-iap.svg)](https://badge.fury.io/js/cypress-iap) ![cypress-iap status](https://github.com/coltdorsey/cypress-iap/workflows/ci/badge.svg?branch=master)
+# Cypress-IAP [![npm version](https://badge.fury.io/js/cypress-iap.svg)](https://badge.fury.io/js/cypress-iap) ![cypress-iap status](https://github.com/onxmaps/cypress-iap/workflows/ci/badge.svg?branch=master)
+
 # Cypress Identity Aware Proxy(IAP)
 
 This Cypress plugin overwrites the `cy.visit` command and builds authentication capability [google-auth-library](https://github.com/googleapis/google-auth-library-nodejs) to access applications behind [Identity Aware Proxy(IAP)](https://cloud.google.com/iap/). If the the cypress baseUrl is localhost, the original `cy.visit` function is returned.
 
 ## Installation
+
 Install the package using npm:
 
 ```
@@ -17,6 +19,7 @@ import 'cypress-iap/visit';
 ```
 
 ## Register the plugin
+
 Register the plugin in your `cypress/plugins/index.js` file like this:
 
 ```
@@ -28,6 +31,7 @@ module.exports = (on, config) => {
 ```
 
 ## Google Service Account
+
 A google service account should be created within your google cloud project. Upon creation, store the keyfile that is auto generated.
 
 [Create a google service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys)
@@ -35,7 +39,9 @@ A google service account should be created within your google cloud project. Upo
 Do `NOT` check this file in to your remote repository. Store it outside of your project or .gitignore / .dockerignore your keyfile.
 
 ### Example google cloud service account
+
 `keyfile.json`
+
 ```
 {
   "type": "service_account",
@@ -52,6 +58,7 @@ Do `NOT` check this file in to your remote repository. Store it outside of your 
 ```
 
 ### Set GOOGLE_APPLICATION_CREDENTIALS env variable
+
 Ensure the `GOOGLE_APPLICATION_CREDENTIALS` environment variable is set to the credentials path of the credentials file.
 
 ```
@@ -61,12 +68,14 @@ export GOOGLE_APPLICATION_CREDENTIALS=path/to/keyfile.json
 Alternatively you can use third party plugin called [as-a](https://github.com/bahmutov/as-a) and in your `as-a.ini` you can set the following configuration:
 
 `as-a.ini`
+
 ```
 [auth-me]
 GOOGLE_APPLICATION_CREDENTIALS=keyfile.json
 ```
 
 This command will execute the [as-a](https://github.com/bahmutov/as-a) package set the variables defined under `[auth-me]`.
+
 ```
 as-a auth-me cypress run
 ```

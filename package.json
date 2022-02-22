@@ -4,7 +4,7 @@
   "description": "Cypress command to authenticate to Google Identity Aware Proxy(IAP)",
   "main": "index.js",
   "types": "index.d.ts",
-  "author": "Colt Dorsey <coltdorsey@gmail.com>",
+  "author": "Colt Dorsey <colt.dorsey@onxmaps.com>",
   "license": "MIT",
   "files": [
     "visit.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coltdorsey/cypress-iap.git"
+    "url": "https://github.com/onxmaps/cypress-iap.git"
   },
   "keywords": [
     "cypress",
@@ -27,9 +27,9 @@
     "google-authentication"
   ],
   "bugs": {
-    "url": "https://github.com/coltdorsey/cypress-iap/issues"
+    "url": "https://github.com/onxmaps/cypress-iap/issues"
   },
-  "homepage": "https://github.com/coltdorsey/cypress-iap#readme",
+  "homepage": "https://github.com/onxmaps/cypress-iap#readme",
   "devDependencies": {
     "@semantic-release/npm": "^7.0.6",
     "husky": "^4.3.0",
