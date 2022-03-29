@@ -1,6 +1,6 @@
 {
   "name": "cypress-iap",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Cypress command to authenticate to Google Identity Aware Proxy(IAP)",
   "main": "index.js",
   "types": "index.d.ts",
@@ -9,6 +9,7 @@
   "files": [
     "visit.js",
     "utils.js",
+    "manualAddIAPHeader.js",
     "index.d.ts"
   ],
   "scripts": {
