@@ -1,6 +1,6 @@
 {
   "name": "cypress-iap",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Cypress command to authenticate to Google Identity Aware Proxy(IAP)",
   "main": "index.js",
   "types": "index.d.ts",
@@ -35,7 +35,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
-    "semantic-release": "^17.1.2",
+    "semantic-release": "^19.0.0",
     "semantic-release-cli": "^5.4.0"
   },
   "dependencies": {
