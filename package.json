@@ -4,7 +4,7 @@
   "description": "Cypress command to authenticate to Google Identity Aware Proxy(IAP)",
   "main": "index.js",
   "types": "index.d.ts",
-  "author": "Colt Dorsey <colt.dorsey@onxmaps.com>",
+  "author": "onXmaps",
   "license": "MIT",
   "files": [
     "visit.js",
